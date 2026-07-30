@@ -1,0 +1,2 @@
+ls,clean
+cat,clean

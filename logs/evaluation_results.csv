@@ -1,0 +1,3 @@
+file,true_label,predicted_label,correct
+ls,clean,clean,True
+cat,clean,clean,True

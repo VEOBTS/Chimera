@@ -1,23 +1,13 @@
 import sys
 import os
-from capstone import Cs, CS_ARCH_X86, CS_MODE_32
- 
+from shared.utils import disassemble_file, read_file_bytes 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
  
 from shared.utils import read_file_bytes
 from shared.logger import get_logger
  
 logger = get_logger("decryptor_stub_scanner")
- 
-def disassemble_file(file_path, base_address=0x1000):
-    """
-    Disassembles the raw bytes of a file as 32-bit x86 code, starting at a chosen base address.
-    Returns a list of Capstone instruction objects.
-    """
-    data = read_file_bytes(file_path)
-    disassembler = Cs(CS_ARCH_X86, CS_MODE_32)
-    return list(disassembler.disasm(data, base_address))
- 
+
 def find_xor_loops(instructions, window=12):
     """
     Slides a small window across the instruction list and checks for the
@@ -36,7 +26,7 @@ def find_xor_loops(instructions, window=12):
             and int(instr.op_str, 16) < instr.address
             for instr in chunk
         )
-        if has_xor and has_backward_jump:
+        if has_xor >= 2 and has_backward_jump:
             suspicious_spots.append(chunk[0].address)
  
     return suspicious_spots

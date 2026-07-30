@@ -1,6 +1,8 @@
 import math
 import os
 from collections import Counter
+from capstone import Cs, CS_ARCH_X86, CS_MODE_32
+
  
 def calculate_entropy(data_bytes):
     """
@@ -37,3 +39,7 @@ def list_sample_files(samples_dir):
         for name in os.listdir(samples_dir)
         if os.path.isfile(os.path.join(samples_dir, name))
     ]
+def disassemble_file(file_path, base_address=0x1000):
+    data = read_file_bytes(file_path)
+    disassembler = Cs(CS_ARCH_X86, CS_MODE_32)
+    return list(disassembler.disasm(data, base_address))

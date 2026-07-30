@@ -2,6 +2,7 @@ import sys
 import os
 import numpy as np
 from sklearn.ensemble import IsolationForest
+from collections import Counter
  
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
  
@@ -47,3 +48,15 @@ def score_sequence(model, vector):
     is_anomalous = prediction == -1
     logger.info(f"Sequence scored: anomalous={is_anomalous}, raw_score={round(raw_score, 4)}")
     return is_anomalous, raw_score
+def build_vocabulary(sequences, top_n=50, n=2):
+    """
+    Looks across all training sequences and finds the most common
+    consecutive syscall pairs. This fixed list becomes the vocabulary
+    every sequence gets measured against, so all vectors stay the
+    same length and same order.
+    """
+    counter = Counter()
+    for seq in sequences:
+        for i in range(len(seq) - (n - 1)):
+            counter[tuple(seq[i:i + n])] += 1
+    return [pair for pair, _ in counter.most_common(top_n)]

@@ -10,7 +10,9 @@ ISOLATION_FOREST_CONTAMINATION = 0.05   # expected fraction of anomalies, 5 perc
  
 # Metamorphic detection settings
 HMM_HIDDEN_STATES = 4            # number of hidden behavior states the model tracks
-CFG_BRANCH_DENSITY_THRESHOLD = 0.6      # flags unusually dense/tangled control flow
+CFG_BRANCH_DENSITY_THRESHOLD = 2.0      # flags unusually dense/tangled control flow
  
 # Sandbox isolation settings
 SANDBOX_MONITOR_SECONDS = 30     # how long to observe a sample's behavior before deciding
+
+HMM_LOG_LIKELIHOOD_THRESHOLD = -2500  # placeholder, tune after first real run
