@@ -1,0 +1,24 @@
+sample /*
+logs /*
+
+# Virtual Environments
+venv/
+.venv/
+env/
+.env/
+ENV/
+env.bak/
+venv.bak/
+
+# Root virtual environment files
+bin/
+include/
+lib/
+/lib64/
+/share/
+pyvenv.cfg
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class

@@ -1,0 +1,18 @@
+2026-07-30 01:39:12,408 | entropy_scanner | INFO | /bin/ls: 0 high-entropy chunk(s) found
+2026-07-30 01:40:09,598 | decryptor_stub_scanner | INFO | /bin/ls: decryptor stub pattern found=True, spots=[5110, 5112, 5115, 5121, 5123, 5125, 5127, 5133, 5135, 5141, 5142, 5144]
+2026-07-30 01:40:49,713 | opcode_graph | INFO | /bin/ls: CFG built with 7210 node(s), 11065 edge(s)
+2026-07-30 01:42:53,067 | opcode_graph | INFO | /bin/ls: CFG built with 7210 node(s), 11065 edge(s)
+2026-07-30 01:42:53,089 | cfg_structural_analysis | INFO | density=1.535, dead_end_ratio=0.072, suspicious=True
+2026-07-30 01:51:14,091 | main | INFO | Analyzing: /home/demeji/projectizzy##/malware_detection_system/samples/ls
+2026-07-30 01:51:14,108 | entropy_scanner | INFO | /home/demeji/projectizzy##/malware_detection_system/samples/ls: 0 high-entropy chunk(s) found
+2026-07-30 01:51:14,162 | decryptor_stub_scanner | INFO | /home/demeji/projectizzy##/malware_detection_system/samples/ls: decryptor stub pattern found=True, spots=[5110, 5112, 5115, 5121, 5123, 5125, 5127, 5133, 5135, 5141, 5142, 5144]
+2026-07-30 01:51:22,988 | opcode_graph | INFO | /home/demeji/projectizzy##/malware_detection_system/samples/ls: CFG built with 7210 node(s), 11065 edge(s)
+2026-07-30 01:51:23,003 | cfg_structural_analysis | INFO | density=1.535, dead_end_ratio=0.072, suspicious=True
+2026-07-30 01:51:23,004 | main | INFO | Analyzing: /home/demeji/projectizzy##/malware_detection_system/samples/.gitkeep
+2026-07-30 01:51:23,004 | entropy_scanner | INFO | /home/demeji/projectizzy##/malware_detection_system/samples/.gitkeep: 0 high-entropy chunk(s) found
+2026-07-30 01:51:23,005 | decryptor_stub_scanner | INFO | /home/demeji/projectizzy##/malware_detection_system/samples/.gitkeep: decryptor stub pattern found=False, spots=[]
+2026-07-30 01:53:44,966 | main | INFO | Analyzing: /home/demeji/projectizzy##/malware_detection_system/samples/ls
+2026-07-30 01:53:44,986 | entropy_scanner | INFO | /home/demeji/projectizzy##/malware_detection_system/samples/ls: 0 high-entropy chunk(s) found
+2026-07-30 01:53:45,036 | decryptor_stub_scanner | INFO | /home/demeji/projectizzy##/malware_detection_system/samples/ls: decryptor stub pattern found=True, spots=[5110, 5112, 5115, 5121, 5123, 5125, 5127, 5133, 5135, 5141, 5142, 5144]
+2026-07-30 01:53:54,885 | opcode_graph | INFO | /home/demeji/projectizzy##/malware_detection_system/samples/ls: CFG built with 7210 node(s), 11065 edge(s)
+2026-07-30 01:53:54,892 | cfg_structural_analysis | INFO | density=1.535, dead_end_ratio=0.072, suspicious=True
