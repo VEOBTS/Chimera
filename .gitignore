@@ -23,4 +23,19 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-models/*
+# Models
+models/
+
+# Malware Samples
+samples/
+test_samples/
+
+# Editor swap files
+*.swp
+*.swo
+*~
+
+# Temporary files and build artifacts
+*.tmp
+a.out
+typescript
