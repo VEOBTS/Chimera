@@ -1,41 +1,33 @@
-sample /*
-logs /*
+# Sample and model data — never in version control
+samples/*
+test_samples/*
+logs/*
+models/*
 
-# Virtual Environments
-venv/
-.venv/
-env/
-.env/
-ENV/
-env.bak/
-venv.bak/
-
-# Root virtual environment files
+# Virtual environment (created in project root)
 bin/
-include/
 lib/
-/lib64/
-/share/
+lib64/
+include/
+share/
 pyvenv.cfg
 
-# Python Cache
+# Python cache
 __pycache__/
-*.py[cod]
-*$py.class
+*.pyc
+*.pyo
 
-# Models
-models/
-
-# Malware Samples
-samples/
-test_samples/
-
-# Editor swap files
+# Editor/OS clutter
 *.swp
 *.swo
 *~
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
 
-# Temporary files and build artifacts
-*.tmp
+# Stray build artifacts
 a.out
+pod2htmd.tmp
+messages.pot
 typescript
