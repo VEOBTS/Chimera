@@ -128,3 +128,47 @@ This is the seam that keeps detection logic and coordination logic separate — 
 - **Real malware handling** (downloading, unzipping, sandbox execution): a separate, disposable VirtualBox VM, snapshotted before every run, network adapter disabled during any monitored execution.
 
 WSL is not treated as a strong enough isolation boundary for live samples, since it still shares kernel-level resources with the Windows host in some respects. The two environments are never merged.
+
+
+## Setup
+
+**Requirements:** Python 3.10+, a Linux environment (native or VM), and `strace` installed.
+
+```bash
+git clone https://github.com/your-username/chimera.git
+cd chimera
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+## Training
+
+Clean training data should be placed in `~/clean_training_set` before running. This is used to train both ML components on known-clean behavior only.
+
+```bash
+python3 train_models.py
+```
+
+This produces three artifacts in `models/`:
+- `hmm_behavior_model.pkl`
+- `isolation_forest_model.pkl`
+- `api_vocabulary.pkl`
+
+## Running an evaluation
+
+Place test files in `test_samples/` and label them in `test_labels.txt` (format: `filename,clean` or `filename,malicious`, one per line).
+
+```bash
+python3 run_evaluation.py --test_dir test_samples/ --labels test_labels.txt
+```
+
+Output includes a per-file predicted verdict, the six individual detection signals, and an overall accuracy percentage.
+
+## Configuration
+
+All detection thresholds and file paths live in `config.py`, so recalibration never requires touching detection logic directly.
+
+## Malware sample handling
+
+Real malware must never be tested on a development machine. Full isolation requirements, sample sourcing, and the testing procedure are documented in `Chimera_Whitepaper_Draft_v2.docx`, Section 11. Follow that protocol exactly before introducing any live sample.
